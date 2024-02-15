@@ -1,1 +1,131 @@
-<p>register works!</p>
+
+
+
+<section id="register"  class="d-center" >
+    <section id="auth-form" class="" >
+    
+        <div class="mainImg  m-auto text-center ">
+            <img src="../../../assets/image/logo.svg" alt="logo" class="img-fluid">
+        </div>
+        <div class="container  caption">
+    
+        <h2>Register</h2>
+    <p>Welcome Back! Please enter your details</p>
+
+
+    <form  class="" [formGroup]="registerForm"
+     (ngSubmit)="signUp(registerForm)">
+
+      <section class=" input-form d-flex justify-content-between">
+
+     
+         <section class="regForm">
+
+              <!-- -------------------------------UserName------------------- -->
+<div class="input-group flex-nowrap py-2 ">
+            <span class="input-group-text" id="addon-wrapping"> <i class="fa-regular fa-user"></i></span>
+   <input type="text" class="form-control"
+  
+    placeholder="UserName" formControlName="userName"></div>
+
+<!-- <p *ngIf="registerForm.get('userName')?.getError('errors') && registerForm.get('userName')?.touched">user name erorr</p> -->
+
+
+
+      <!-- -------------------------------countery------------------- -->
+          <div class="input-group flex-nowrap py-2 ">
+            <span class="input-group-text" id="addon-wrapping"> 
+             
+              <i class="fa-solid fa-earth-americas"></i>
+            </span>
+            <input  type="text" class="form-control" 
+          formControlName="country" placeholder="Country">
+          </div>
+                   <!-- -------------------------------Passworde------------------- -->
+          <div class="input-group flex-nowrap py-2 position-relative  ">
+     
+            <span class="input-group-text" id="addon-wrapping">
+                <i class="fa-solid fa-lock"></i>
+            </span>
+            <input type="password" class="form-control" 
+            formControlName="password" placeholder="Password" >
+            
+            
+            <img src="../../../assets/image/eye.svg" class="eye translate-middle">
+             
+          </div>
+
+         
+
+
+          
+          </section>
+
+
+       <section class="regForm ">
+        <!-- -------------------------------email------------------- -->
+    <div class="input-group flex-nowrap py-2">
+        <span class="input-group-text" id="addon-wrapping"> 
+          <!-- <i class="fa-solid fa-mobile-screen"></i> -->
+          <i class="fa-regular fa-envelope"></i>
+        
+        </span>
+
+        <input type="email" class="form-control"
+        formControlName="email"  placeholder="Enter your E-mail">
+      </div>
+      <!-- -------------------------------Phone------------------- -->
+      <div class="input-group flex-nowrap py-2">
+        <span class="input-group-text" id="addon-wrapping"> 
+          <i class="fa-solid fa-mobile-screen"></i>
+        </span>
+        <input type="text" class="form-control"
+      formControlName="phoneNumber"   placeholder="PhoneNumber">
+      </div>
+      <!-- -------------------------------confirm passworde------------------- -->
+      <div class="input-group flex-nowrap py-2 position-relative confirm">
+ 
+        <span class="input-group-text" id="addon-wrapping">
+            <i class="fa-solid fa-lock"></i>
+        </span>
+        <input type="password" class="form-control" 
+       formControlName="confirmPassword"  placeholder="Confirm-Password" >
+         <img src="../../../assets/image/eye.svg" class="eye translate-middle">
+         <!-- <i class="fa-regular fa-eye eye translate-middle fs-5"></i> -->
+      </div>
+
+      </section>
+
+    </section>
+
+
+<!-- -----------------  Button Register  ------------ -->
+    <section class="">
+  <div class="mb-2 d-center  justify-content-end">
+       
+   <a> <h4 class="forgot text-end " routerLink="/login">Login Now?</h4></a>
+
+  </div>
+  <!-- <button class="main w-100" [disabled]="registerForm.valid ==false &&
+   registerForm.touched==false">Register</button> -->
+  <button class="main w-100" >Register</button>
+     
+</section>
+      
+     </form>
+    
+
+
+
+
+
+      <!-- <div class="mb-2 d-center  justify-content-end">
+       
+        <h4 class="forgot text-end" >Login Now?</h4>
+      </div>
+      <button class="main w-100">Register</button> -->
+    
+    </div>
+    </section>
+    
+    </section>

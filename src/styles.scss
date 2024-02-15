@@ -46,17 +46,33 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 // -----------varibeles-----------------
 $mainColor:#4aa35a;
-// --------------------------------------
-p{
-  font-size:16px;
-  font-weight: 400;
+
+// ------------------main Class--------------------
+.bg-main{
+  background-color: $mainColor;
 }
-// custom class
+
+
 .d-center{
   display: flex;
 justify-content: center;
 align-items: center;
 }
+// ------------------------------------------------
+
+
+p{
+  font-size:16px;
+  font-weight: 400;
+}
+
+a,i,button,image ,input{
+cursor: pointer;
+}
+
+
+
+// -------------------------------------------custom style------------
 #auth-form{
   width:60%;
   background-color: white;
@@ -94,10 +110,7 @@ p{
  
     z-index: 2;
   }
-  input:nth-child(2) {
-    
-    border-radius: 5px;
-  }
+ 
 span{
 
 position: relative;
@@ -118,6 +131,9 @@ span::after{
     background-color:#f8f9fa;
    
     border-left: none;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+
   }
 
 

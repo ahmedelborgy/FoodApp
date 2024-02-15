@@ -1,0 +1,70 @@
+#register{
+    height: 100vh;
+    height:100vh;
+   
+        background-image: url(../../../assets/image/auth.bg.png);
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        #auth-form{
+            
+            .regForm{
+                width: 45%;
+     
+            }
+            .caption{
+ 
+                padding-inline: 4rem;
+              }
+        
+        
+        
+            }
+
+
+    }
+
+
+
+
+
+    @media screen and (max-width:992px ) {
+       #register{
+
+       
+       
+       
+        #auth-form{
+            .input-form{
+                flex-direction: column;
+            }
+            
+            .regForm{
+                width: 100%;
+                
+        
+            }
+            .regForm:nth-child(2) {
+            display: flex;
+            flex-direction: column-reverse;
+              }
+        }
+    }
+
+
+
+
+    }
+
+
+
+
+
+// #auth-form{
+//     background-color: antiquewhite;
+//     padding-left: 1rem;
+//     .regForm{
+//         width: 45%;
+
+//     }
+// }

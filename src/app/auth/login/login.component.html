@@ -12,22 +12,38 @@
     <h2>Log In</h2>
 <p>Welcome Back! Please enter your details</p>
 
+
+
+
+<!-- -----------------------Email --------------------------------- -->
+<form    [formGroup]="loginForm" (ngSubmit)="signIn(loginForm)">
+
 <div class="input-group flex-nowrap py-3">
     <span class="input-group-text" id="addon-wrapping"> 
-      <!-- <i class="fa-solid fa-mobile-screen"></i> -->
+     
       <i class="fa-regular fa-envelope"></i>
     </span>
-    <input type="email" class="form-control"
-     placeholder="Enter your E-mail">
+    <input  formControlName="email" type="email" class="form-control" placeholder="Enter your E-mail">
   </div>
+<small class="text-danger">
 
+<small *ngIf="loginForm.get('email')?.getError('required')&&loginForm.get('email')?.value!=null">Pleas fill out this filed</small>
+
+<small *ngIf="loginForm.get('email')?.getError('email')">must be format email</small>
+
+<small *ngIf="loginForm.get('email')?.getError('pattern')" >
+  Pleas write correct email as xxx12@domian.com.</small> 
+
+</small>
+
+<!-- -----------------------password --------------------------------- -->
 
   <div class="input-group flex-nowrap py-3 position-relative ">
     <!-- <img src="../../../assets/image/eye.svg" class=" eye"> -->
     <span class="input-group-text" id="addon-wrapping">
         <i class="fa-solid fa-lock"></i>
     </span>
-    <input type="password" class="form-control" 
+    <input formControlName="password" type="password" class="form-control" 
     placeholder="Password" >
      <img src="../../../assets/image/eye.svg" class="eye translate-middle">
   </div>
@@ -36,13 +52,26 @@
    
   <a><h4  routerLink="/register" routerLinkActive="bg-main">Register Now?</h4>
   </a> 
-    
+
     <!-- /admin/rights -->
     <a><h4 class="forgot">Forgot Password?</h4></a>
   </div>
-  <button class="main w-100">Login</button>
+  <button class="main w-100"
+   [class]="!loginForm.valid && loginForm.touched?'.bg-main-25':'bg-main'"   [disabled]="
+  !loginForm.valid && loginForm.touched">Login</button>
 
+<p *ngIf="loginForm.valid" class="stutus">
+  {{is_message}}</p>
+
+</form>
 </div>
 </section>
+
+
+
+
+
+
+
 
 </section>

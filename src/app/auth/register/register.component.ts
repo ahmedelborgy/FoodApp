@@ -1,39 +1,29 @@
 import { AuthService } from './../authService/auth.service';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-
+import { Register } from '../moduleAut/register';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  styleUrls: ['./register.component.scss'],
+  providers:[]
 })
-/*
-X 'POST' \
-  'https://upskilling-egypt.com:443/api/v1/Users/Register' \
-  -H 'accept: application/json' \
-  -H 'Content-Type: multipart/form-data' \
-  -F 'userName=ahmed120' \
-  -F 'email=ahmedalaaeldeen1303284@gmail.com' \
-  -F 'country=egypte' \
-  -F 'phoneNumber=01025662460' \
-  -F 'profileImage=@Ahmed Elborgy Img.jpeg;type=image/jpeg' \
-  -F 'password=test@Test1' \
-  -F 'confirmPassword=test@Test1'
 
 
-
-*/
 export class RegisterComponent {
+
   is_mess:string=''
-  constructor(private auth:AuthService){
+  constructor(private auth:AuthService,private toastr: ToastrService){
 
   }
 registerForm=new FormGroup({
   // "The userName must be at least 4 characters.",
   // "The userName must contain characters and end with numbers without spaces."
+  
   userName: new FormControl(null,[
     Validators.required,
-    Validators.maxLength(20),
+    Validators.maxLength(50),
     Validators.minLength(4),
    Validators.pattern(/^(?=.{4,}$)(?=.*[a-zA-Z])(?=.*\d$)[a-zA-Z\d]+$/)
 
@@ -56,14 +46,14 @@ registerForm=new FormGroup({
   profileImage:new FormControl(),
   password:new FormControl(null,[
     Validators.required,
-    Validators.min(6),
+    Validators.minLength(6),
     // Validators.pattern(/^[A-Z][a-z-0-9]{5,16}$/)
     Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()-_=+[\]{}|\\;:'",.<>/?]).{6,}$/)
   
   ]),
   confirmPassword:new FormControl(null,[
     Validators.required,
-    Validators.min(6),
+    Validators.minLength(6),
     // Validators.pattern(/^[A-Z][a-z-0-9]{5,16}$/)
     Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()-_=+[\]{}|\\;:'",.<>/?]).{6,}$/)
   
@@ -83,18 +73,20 @@ this.auth.register(formData.value).subscribe({
 next:(res)=>{
 console.log(res);
 
-// this.is_mess=res.message;
+this.is_mess=res.message;
 
 // console.log(this.is_mess);
 
 },
-error:(error)=>{
-console.log(error);
-
+error:(err)=>{
+console.log(err);
+this.is_mess=err.error.message
+  this['toastr'].error('Hello world!', 'Toastr fun!');
+  this.toastr.error('Hello world!', 'Toastr fun!');
 },
 complete:()=>{
 console.log('complet---->');
-
+this.toastr.success('Hello world!', 'Toastr fun!');
 }
 
 })

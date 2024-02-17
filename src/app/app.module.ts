@@ -20,6 +20,7 @@ import { GlobalInterceptor } from './auth/Interceptor/global.interceptor';
     AuthModule,
     SharedModule,
     
+    
   ],
   providers: [
     {

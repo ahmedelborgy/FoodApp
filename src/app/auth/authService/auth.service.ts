@@ -13,7 +13,7 @@ export class AuthService {
 
 
 
-  register(user:Register):Observable<any>{
+  register(user:any):Observable<any>{
     // return this.http.post(`https://upskilling-egypt.com/api/v1/Users/Register`,user);
     return this.http.post(`Users/Register`, user);
    

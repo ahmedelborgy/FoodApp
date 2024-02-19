@@ -35,15 +35,22 @@
        
        
         #auth-form{
+            
             .input-form{
                 flex-direction: column;
             }
             
+            
             .regForm{
                 width: 100%;
-                
-        
-            }
+            //     background-color: aqua;
+            //     padding-inline: 2rem;
+            //     input{
+            // background-color: rebeccapurple;
+            // width: 100%;
+            // padding-inline: 2rem;
+            //     }
+                }
             // .regForm:nth-child(2) {
             // display: flex;
             // flex-direction: column-reverse;

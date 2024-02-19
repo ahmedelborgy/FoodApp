@@ -1,19 +1,51 @@
 
 
 <section id="register"  class="d-center" >
-  <section id="auth-form" class="" >
+  <section id="auth-form"  >
   
       <div class="mainImg  m-auto text-center ">
           <img src="../../../assets/image/logo.svg" alt="logo" class="img-fluid">
       </div>
-      <div class="container  caption">
+      <div class="container  caption ">
   
       <h2>Register</h2>
   <p>Welcome Back! Please enter your details</p>
 
-
+ <!-- -------------------------------UserImage------------------- -->
   <form  class="" [formGroup]="registerForm" (ngSubmit)="signUp(registerForm)">
+<!-- in app.component.html -->
+<!-- <ngx-dropzone  (change)="onSelect($event)">
 
+	<ngx-dropzone-label  class="d-center flex-column">Uplode Your Image!
+    <i class="fa-regular p-5 fa-square-caret-up fs-1 bg-main text-white"></i>
+    </ngx-dropzone-label>
+	<ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+		<ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+	
+  </ngx-dropzone-preview>
+
+
+  <ngx-dropzone-image-preview  ngProjectAs="ngx-dropzone-preview" 
+  *ngFor="let f of files" [file]="f">
+   
+  </ngx-dropzone-image-preview>
+
+</ngx-dropzone> -->
+
+<!-- in app.component.html -->
+<ngx-dropzone (change)="onSelect($event)">
+
+	<ngx-dropzone-label class="d-center flex-column">
+    Drop it, baby!
+    <i class="fa-regular p-5 fa-square-caret-up fs-1 bg-main text-white"></i>
+  </ngx-dropzone-label>
+	
+  <ngx-dropzone-image-preview class="d-center" ngProjectAs="ngx-dropzone-preview" *ngFor="let f of filesm" [file]="f">
+    <!-- <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label> -->
+  </ngx-dropzone-image-preview>
+</ngx-dropzone>
+
+ <!-- -------------------------------UserImage------------------- -->
     <section class=" input-form d-flex justify-content-between">
 
    
@@ -168,10 +200,11 @@
 
 <!-- -----------------  Button Register  ------------ -->
   <section class="">
-<div class="mb-2 d-center  justify-content-end">
+<div class="mb-2 d-center  align-items-end justify-content-end flex-column">
      
- <a> <h4 class="forgot text-end " routerLink="/login">Login Now?</h4></a>
-
+ <!-- <a> <h4 class="forgot text-end  bg-info" routerLink="/login">Login Now?</h4></a> -->
+ <a><h4 class="forgot text-end bg-warning">Have A Code ?</h4></a>
+ <a> <h4 class="forgot text-end  bg-info" routerLink="/login">Login Now?</h4></a>
 </div>
 <!-- <button class="main w-100" [disabled]="registerForm.valid ==false &&
  registerForm.touched==false">Register</button> -->
